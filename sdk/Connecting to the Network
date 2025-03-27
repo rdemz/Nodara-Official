@@ -1,0 +1,6 @@
+import { NodaraSDK } from 'nodara-sdk';
+
+const sdk = new NodaraSDK("https://testnet.nodara.io/api");
+sdk.getNetworkStatus().then(status => {
+  console.log("Network Status:", status);
+}).catch(console.error);
