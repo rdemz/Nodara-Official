@@ -1,0 +1,57 @@
+name: Legendary CI/CD Pipeline for Nodara BIOSPHÈRE QUANTIC
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_and_test:
+    name: Build, Test and Benchmark
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Rust Toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+          components: clippy, rustfmt
+
+      - name: Cache Cargo Registry
+        uses: actions/cache@v3
+        with:
+          path: ~/.cargo/registry
+          key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Cache Cargo Git
+        uses: actions/cache@v3
+        with:
+          path: ~/.cargo/git
+          key: ${{ runner.os }}-cargo-git-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Build Project in Legendary Mode
+        run: cargo build --release
+
+      - name: Run All Tests and Benchmarks
+        run: cargo test --all --verbose && cargo bench
+
+  deploy:
+    name: Deploy to Legendary Testnet
+    needs: build_and_test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Deploy to Testnet
+        run: |
+          echo "Deploying Nodara BIOSPHÈRE QUANTIC Legendary Edition to Testnet..."
+          # Replace with your actual deployment script command
+          ./scripts/deploy_testnet.sh
