@@ -464,7 +464,7 @@ Nodara BIOSPHÈRE QUANTIC is an adaptive blockchain platform that integrates adv
 ## 11. Team and Organizational Structure
 
 - **Founder:**  
-  A visionary leader with deep technical expertise in blockchain and economics.
+  A visionary leader 
 - **Advisory Board:**  
   A curated panel of industry experts providing strategic guidance.
 - **Planned Team Expansion:**  
