@@ -1,0 +1,14 @@
+import { NodaraGovernanceSDK } from 'nodara-sdk';
+
+const governanceSdk = new NodaraGovernanceSDK("https://testnet.nodara.io/api");
+
+async function submitProposal() {
+  try {
+    const response = await governanceSdk.submitProposal("Increase growth threshold", "growth_threshold", "90");
+    console.log("Proposal submitted successfully:", response);
+  } catch (error) {
+    console.error("Error submitting proposal:", error);
+  }
+}
+
+submitProposal();
