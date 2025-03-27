@@ -7,9 +7,6 @@ This folder contains all the marketing and presentation materials for Nodara BIO
 - **presentation_deck.md:**  
   A detailed presentation deck that outlines the project's value proposition, technological innovations, market strategy, and financial projections.
   
-- **video_script.md:**  
-  A complete video script for a promotional video, highlighting the key features and competitive advantages of Nodara BIOSPHÈRE QUANTIC.
-  
 - **investment_overview.md:**  
   An executive summary and pitch document that consolidates the main investment highlights, tokenomics, and financial projections.
   
